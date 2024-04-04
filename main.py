@@ -1,6 +1,6 @@
-from typing import Optional
+from typing import Optional, Annotated
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from pydantic import BaseModel
 
 
@@ -21,7 +21,7 @@ tasks = []
 
 @app.post('/tasks')
 async def add_task(
-        task: STaskAdd,
+        task: Annotated[STaskAdd, Depends()],
 ):
     tasks.append(task)
     return {'ok': True}
