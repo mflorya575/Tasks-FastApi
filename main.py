@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+
 from contextlib import asynccontextmanager
 
 from database import create_tables, delete_tables
